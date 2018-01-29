@@ -1,6 +1,14 @@
 {% extends 'efsPortfolioApp/base.html' %}
 {% load staticfiles %}
+
+
 {% block content %}
+    <body>
+    <style>
+        body {
+            background-color: whitesmoke;
+        }
+    </style>
             {% if user.is_authenticated %}
                 <div class="page-container">
 
