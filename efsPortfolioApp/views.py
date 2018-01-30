@@ -51,7 +51,7 @@ def customer_new(request):
 
     else:
         form = CustomerForm()
-        return render(request, 'efsPortfolioApp/customer_new.html', {'form': form})
+    return render(request, 'efsPortfolioApp/customer_new.html', {'form': form})
 
 
 @login_required
@@ -82,7 +82,6 @@ def stock_new(request):
         form = StockForm()
         # print("Else")
     return render(request, 'efsPortfolioApp/stock_new.html', {'form': form})
-
 
 
 @login_required
