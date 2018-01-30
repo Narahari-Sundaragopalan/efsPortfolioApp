@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import dj_database_url
-#from .local_settings import *
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -34,7 +34,6 @@ try:
 except ImportError:
     pass
 
-#if ENVIRONMENT == 'PROD':
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
@@ -86,7 +85,6 @@ WSGI_APPLICATION = 'efsProj.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-#if ENVIRONMENT == 'PROD':
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -148,21 +146,7 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-#if ENVIRONMENT == 'PROD':
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
-# if ENVIRONMENT == 'PROD':
-#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#     # Simplified static file serving.
-#     # https://warehouse.python.org/project/whitenoise/
-#     STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-#     STATICFILES_DIRS = [
-#         os.path.join(BASE_DIR, "static"),
-#     ]
-# else:
-#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#     STATICFILES_DIRS = [
-#         os.path.join(BASE_DIR, "static"),
-#     ]
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
