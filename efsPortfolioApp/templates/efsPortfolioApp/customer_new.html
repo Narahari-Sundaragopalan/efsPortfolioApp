@@ -1,9 +1,9 @@
-{% extends 'efsPortfolioApp/customer.html' %}
+{% extends 'efsPortfolioApp/base.html' %}
 
 {% block content %}
     <h1>Add a New Customer</h1>
      <form method="POST" class="customer-form">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <button type="submit" class="save btn btn-primary">Save</button>
     </form>
 {% endblock %}
