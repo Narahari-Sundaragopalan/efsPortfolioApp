@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import dj_database_url
-from .local_settings import *
+#from .local_settings import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -34,8 +34,8 @@ try:
 except ImportError:
     pass
 
-if ENVIRONMENT == 'PROD':
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#if ENVIRONMENT == 'PROD':
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 # Application definition
@@ -86,17 +86,17 @@ WSGI_APPLICATION = 'efsProj.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-if ENVIRONMENT == 'PROD':
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'd9qv0jkfgcivq9',
-            'USER': 'oxkscsxlprryvr',
-            'PASSWORD': '7623080dbd6ddf7120d648d3cc321c933d82ce1a2eb368817ea8cf28b4e6ab84',
-            'HOST': 'ec2-54-235-220-220.compute-1.amazonaws.com',
-            'PORT': 5432,
-        }
+#if ENVIRONMENT == 'PROD':
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd9qv0jkfgcivq9',
+        'USER': 'oxkscsxlprryvr',
+        'PASSWORD': '7623080dbd6ddf7120d648d3cc321c933d82ce1a2eb368817ea8cf28b4e6ab84',
+        'HOST': 'ec2-54-235-220-220.compute-1.amazonaws.com',
+        'PORT': 5432,
     }
+}
 
 
 # Password validation
@@ -148,9 +148,9 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-if ENVIRONMENT == 'PROD':
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
+#if ENVIRONMENT == 'PROD':
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # if ENVIRONMENT == 'PROD':
 #     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
