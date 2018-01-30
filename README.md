@@ -112,4 +112,4 @@ At any moment to check the containers running use, ```docker ps```
 
 ## Development Instructions:
 
-When you need to run commands with manage.py during development, you need to preface the python manage.py [command] with docker-compose run web. This tells Docker to run the command on the web container, which is the main Django app container.
+When you need to run commands with ```manage.py``` during development, you need to preface the ```python manage.py [command]``` with ```docker-compose run web```. This tells Docker to run the command on the web container, which is the main Django app container.
