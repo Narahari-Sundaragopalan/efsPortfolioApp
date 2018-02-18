@@ -8,3 +8,4 @@ pytz==2017.2
 simplejson==3.11.1
 whitenoise==3.3.1
 yahoo-finance==1.4.0
+requests
