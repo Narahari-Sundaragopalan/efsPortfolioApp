@@ -95,5 +95,21 @@ class Stock(models.Model):
         return float(share_value) * float(self.shares)
 
 
+class MutualFund(models.Model):
+    customer = models.ForeignKey(Customer, related_name='mutualfunds')
+    scheme_plan = models.CharField(max_length=50)
+    acquired_date = models.DateField(default=timezone.now)
+    investment_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    current_value = models.DecimalField(max_digits=10, decimal_places=2)
+    nominee = models.CharField(max_length=30)
+
+    def created(self):
+        self.acquired_date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return str(self.customer)
+
+
 
 
